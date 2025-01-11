@@ -6,8 +6,8 @@ botaoBuscar.addEventListener('click', async () => {
     console.log('Busca iniciada!');
     // console.log(`Valor do input: ${cep.value}`);
 
-    const endereco = await buscarCEP(cep.value);   
-    
+    const endereco = await buscarCEP(cep.value);
+
     imprimirResultado(endereco);
 });
 
@@ -23,7 +23,7 @@ const buscarCEP = async cep => {
 }
 
 const imprimirResultado = (endereco) => {
-    const {logradouro, bairro, localidade: cidade, uf} = endereco;
+    const { logradouro, bairro, localidade: cidade, uf } = endereco;
 
     const textoLogadouro = document.createElement("p");
     textoLogadouro.innerHTML = `<b>Endereço:</b> ${logradouro}`;
@@ -39,5 +39,5 @@ const imprimirResultado = (endereco) => {
 
     const textoEstado = document.createElement("p");
     textoEstado.innerHTML = `<b>Estado:</b> ${uf}`;
-    campoResultado.appendChild(textoEstado);    
+    campoResultado.appendChild(textoEstado);
 };
