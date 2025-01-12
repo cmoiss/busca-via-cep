@@ -2,7 +2,8 @@ const cep = document.querySelector('#cep');
 const botaoBuscar = document.querySelector('#botao-buscar');
 const campoResultado = document.querySelector(".campo-resultado");
 
-botaoBuscar.addEventListener('click', async () => {
+botaoBuscar.addEventListener('click', async (event) => {
+    event.preventDefault();
     console.log('Busca iniciada!');
     // console.log(`Valor do input: ${cep.value}`);
 
