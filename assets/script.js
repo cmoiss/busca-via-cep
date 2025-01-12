@@ -23,6 +23,11 @@ const buscarCEP = async cep => {
 }
 
 const imprimirResultado = (endereco) => {
+    // Verifica se há elementos filhos no campoResultado
+    if (campoResultado.hasChildNodes()) {
+        campoResultado.innerHTML = "";
+    }
+
     const { logradouro, bairro, localidade: cidade, uf } = endereco;
 
     const textoLogadouro = document.createElement("p");
