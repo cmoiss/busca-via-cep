@@ -2,6 +2,13 @@ const cep = document.querySelector('#cep');
 const botaoBuscar = document.querySelector('#botao-buscar');
 const campoResultado = document.querySelector(".campo-resultado");
 
+// Define máscara de input
+cep.addEventListener('input', () => {
+    const valorFormatado = cep.value.replace(/\D/g, "").substring(0, 8);
+    cep.value = valorFormatado;
+});
+
+
 botaoBuscar.addEventListener('click', async (event) => {
     event.preventDefault();
     console.log('Busca iniciada!');
