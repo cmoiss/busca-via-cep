@@ -22,27 +22,20 @@ botaoBuscar.addEventListener('click', async (event) => {
 });
 
 const cepMask = (currentInput) => {
-    console.log("Criando máscara");
-
-    // Se o campo estiver vazio, não faz nada
-    // if (!currentInput) return "";
-
     // Define máscara de CEP
-    // const regexMask = /^(\d{5})\-?(\d{3})$/g;
-
-
-    // let inputLength = currentInput.length    
-    // if (inputLength > 4) {
-    //     currentInput += "-";
-    // }
+    const cepMask = {
+        group1: /^(\d{5})\-?/g,
+        group2: /(\d{3})$/g
+    };
 
     currentInput = currentInput.replace(/\D/g, ""); // Remove tudo que não for dígito numérico
-    currentInput = currentInput.replace(/^(\d{5})\-?/g, "$1-"); // Adiciona hífen após o 5º dígito  
-    currentInput = currentInput.replace(/(\d{3})$/g, "$1"); // Inclui os 3 últimos dígitos 
+    currentInput = currentInput.replace(cepMask.group1, "$1-"); // Adiciona hífen após o 5º dígito  
+    currentInput = currentInput.replace(cepMask.group2, "$1"); // Inclui os 3 últimos dígitos 
+
+    console.log("Definindo máscara de CEP...");
 
     return currentInput;
-}
-
+};
 
 const buscarCEP = async cep => {
     const urlAPI = `https://viacep.com.br/ws/${cep}/json/`;
