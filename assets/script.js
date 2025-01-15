@@ -2,13 +2,12 @@ const cep = document.querySelector('#cep');
 const botaoBuscar = document.querySelector('#botao-buscar');
 const campoResultado = document.querySelector(".campo-resultado");
 
+// Verifica quando o usuário digita no campo de CEP
 cep.addEventListener("input", (event) => {
     const initialInput = cep.value;
 
     // Verifica se a tecla pressionada é o Backspace
-    if (event.inputType !== "deleteContentBackward") {
-        cep.value = cepMask(initialInput);
-    }
+    cep.value = printCepMask(initialInput);
 });
 
 botaoBuscar.addEventListener('click', async (event) => {
@@ -18,19 +17,24 @@ botaoBuscar.addEventListener('click', async (event) => {
 
     const endereco = await buscarCEP(cep.value);
 
-    imprimirResultado(endereco);
+    // Verifica se o CEP existe
+    if (!endereco.erro) {
+        imprimirResultado(endereco);
+    } else {
+        limparCampoResultado();
+        alert("CEP não encontrado, tente novamente!");
+    }
 });
 
-const cepMask = (currentInput) => {
-    // Define máscara de CEP
-    const cepMask = {
-        group1: /^(\d{5})\-?/g,
-        group2: /(\d{3})$/g
-    };
+const printCepMask = (currentInput) => {
+    // Regex que define máscara de CEP
+    const cepMask = /^(\d{5})\-?(\d{3})$/g;
 
     currentInput = currentInput.replace(/\D/g, ""); // Remove tudo que não for dígito numérico
-    currentInput = currentInput.replace(cepMask.group1, "$1-"); // Adiciona hífen após o 5º dígito  
-    currentInput = currentInput.replace(cepMask.group2, "$1"); // Inclui os 3 últimos dígitos 
+    currentInput = currentInput.replace(cepMask, "$1-$2"); // Adiciona hífen entre o 5º e 6º dígitos após digitar o CEP 
+    /* Gerar a máscara após o input previne o erro "hífen block", 
+    uma vez que o hífen sempre estava sendo gerado após o 5º dígito,
+    não permitindo que usuário use o backspace */
 
     console.log("Definindo máscara de CEP...");
 
@@ -48,11 +52,17 @@ const buscarCEP = async cep => {
     return jsonResult;
 }
 
-const imprimirResultado = (endereco) => {
+const limparCampoResultado = () => {
     // Verifica se há elementos filhos no campoResultado
     if (campoResultado.hasChildNodes()) {
         campoResultado.innerHTML = "";
     }
+
+    // Se não houver filhos, não faça nada
+}
+
+const imprimirResultado = (endereco) => {
+    limparCampoResultado();
 
     const { logradouro, bairro, localidade: cidade, uf } = endereco;
 
