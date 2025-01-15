@@ -2,12 +2,13 @@ const cep = document.querySelector('#cep');
 const botaoBuscar = document.querySelector('#botao-buscar');
 const campoResultado = document.querySelector(".campo-resultado");
 
+// Verifica quando o usuário digita no campo de CEP
 cep.addEventListener("input", (event) => {
     const initialInput = cep.value;
 
     // Verifica se a tecla pressionada é o Backspace
     if (event.inputType !== "deleteContentBackward") {
-        cep.value = cepMask(initialInput);
+        cep.value = printCepMask(initialInput);
     }
 });
 
@@ -27,7 +28,7 @@ botaoBuscar.addEventListener('click', async (event) => {
     }
 });
 
-const cepMask = (currentInput) => {
+const printCepMask = (currentInput) => {
     // Regex que define máscara de CEP
     const cepMask = {
         group1: /^(\d{5})\-?/g,
