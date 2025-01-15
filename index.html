@@ -17,7 +17,8 @@
         <main>
             <form class="form-busca">
                 <fieldset id="campo-busca">
-                    <input type="text" id="cep" placeholder="Digite o CEP..." maxlength="9" required inputmode="numeric">
+                    <!-- Type deve ser "text" para poder adicionar o hífen na mascara de input -->
+                    <input type="text" id="cep" placeholder="Digite o CEP..." maxlength="9" inputmode="numeric" required />
                     <button id="botao-buscar">Buscar</button>
                 </fieldset>
             </form>
