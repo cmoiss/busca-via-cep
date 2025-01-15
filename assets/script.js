@@ -18,7 +18,13 @@ botaoBuscar.addEventListener('click', async (event) => {
 
     const endereco = await buscarCEP(cep.value);
 
-    imprimirResultado(endereco);
+    // Verifica se o CEP existe
+    if (!endereco.erro) {
+        imprimirResultado(endereco);
+    } else {
+        limparCampoResultado();
+        alert("CEP não encontrado, tente novamente!");
+    }
 });
 
 const cepMask = (currentInput) => {
