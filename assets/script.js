@@ -54,11 +54,17 @@ const buscarCEP = async cep => {
     return jsonResult;
 }
 
-const imprimirResultado = (endereco) => {
+const limparCampoResultado = () => {
     // Verifica se há elementos filhos no campoResultado
     if (campoResultado.hasChildNodes()) {
         campoResultado.innerHTML = "";
     }
+
+    // Se não houver filhos, não faça nada
+}
+
+const imprimirResultado = (endereco) => {
+    limparCampoResultado();
 
     const { logradouro, bairro, localidade: cidade, uf } = endereco;
 
