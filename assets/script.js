@@ -7,9 +7,7 @@ cep.addEventListener("input", (event) => {
     const initialInput = cep.value;
 
     // Verifica se a tecla pressionada é o Backspace
-    if (event.inputType !== "deleteContentBackward") {
-        cep.value = printCepMask(initialInput);
-    }
+    cep.value = printCepMask(initialInput);
 });
 
 botaoBuscar.addEventListener('click', async (event) => {
@@ -30,14 +28,13 @@ botaoBuscar.addEventListener('click', async (event) => {
 
 const printCepMask = (currentInput) => {
     // Regex que define máscara de CEP
-    const cepMask = {
-        group1: /^(\d{5})\-?/g,
-        group2: /(\d{3})$/g
-    };
+    const cepMask = /^(\d{5})\-?(\d{3})$/g;
 
     currentInput = currentInput.replace(/\D/g, ""); // Remove tudo que não for dígito numérico
-    currentInput = currentInput.replace(cepMask.group1, "$1-"); // Adiciona hífen após o 5º dígito  
-    currentInput = currentInput.replace(cepMask.group2, "$1"); // Inclui os 3 últimos dígitos 
+    currentInput = currentInput.replace(cepMask, "$1-$2"); // Adiciona hífen entre o 5º e 6º dígitos após digitar o CEP 
+    /* Gerar a máscara após o input previne o erro "hífen block", 
+    uma vez que o hífen sempre estava sendo gerado após o 5º dígito,
+    não permitindo que usuário use o backspace */
 
     console.log("Definindo máscara de CEP...");
 
