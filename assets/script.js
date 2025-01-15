@@ -2,6 +2,15 @@ const cep = document.querySelector('#cep');
 const botaoBuscar = document.querySelector('#botao-buscar');
 const campoResultado = document.querySelector(".campo-resultado");
 
+cep.addEventListener("input", (event) => {
+    const initialInput = cep.value;
+
+    // Verifica se a tecla pressionada é o Backspace
+    if (event.inputType !== "deleteContentBackward") {
+        cep.value = cepMask(initialInput);
+    }
+});
+
 botaoBuscar.addEventListener('click', async (event) => {
     event.preventDefault();
     console.log('Busca iniciada!');
