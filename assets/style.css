@@ -5,6 +5,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.hidden {
+    display: none;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;

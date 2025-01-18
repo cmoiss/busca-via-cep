@@ -19,6 +19,8 @@ botaoBuscar.addEventListener('click', async (event) => {
 
     // Verifica se o CEP existe
     if (!endereco.erro) {
+        // Imprime o resultado na tela
+        campoResultado.classList.remove("hidden");
         imprimirResultado(endereco);
     } else {
         limparCampoResultado();
