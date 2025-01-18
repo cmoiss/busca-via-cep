@@ -9,7 +9,10 @@ Uma simples página para busca de informações de endereço com base no CEP uti
 - Notifica o usuário caso o CEP digitado seja inválido ou não encontrado.
 
 ## 🛠️ Tecnologias Utilizadas
-HTML, CSS, JavaScript e API ViaCEP.
+- HTML
+- CSS
+- JavaScript
+- API ViaCEP.
 
 ## 🖥️ Como Executar o Projeto
 
