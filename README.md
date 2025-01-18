@@ -9,11 +9,7 @@ Uma simples página para busca de informações de endereço com base no CEP uti
 - Notifica o usuário caso o CEP digitado seja inválido ou não encontrado.
 
 ## 🛠️ Tecnologias Utilizadas
-
-- **HTML5**: Estrutura do projeto.
-- **CSS3**: Estilos personalizados e uso do Bootstrap 5 para estilização.
-- **JavaScript**: Lógica de aplicação, integração com a API ViaCEP e manipulação do DOM.
-- **API ViaCEP**: Para buscar informações de endereço.
+HTML, CSS, JavaScript e API ViaCEP.
 
 ## 🖥️ Como Executar o Projeto
 
