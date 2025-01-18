@@ -19,30 +19,29 @@
 
 <body>
     <div class="wrapper">
-        <header>
-            <h1>Buscar cep</h1>
-        </header>
-
-        <main>
-            <form class="row g-3">
-                <div class="col-auto">
-                    <label for="cep" class="visually-hidden">Digite o CEP...</label>
-                    <input type="text" class="form-control" id="cep" placeholder="Digite o CEP..." maxlength="9"
-                        inputmode="numeric" required />
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3" id="botao-buscar">Buscar</button>
-                </div>
-            </form>
-
-            <article class="campo-resultado">
-                <p><b>Endereço:</b> Avenida Nila Jales</p>
-                <p><b>Bairro</b> Lagoa Azul</p>
-                <p><b>Cidade:</b> Natal</p>
-                <p><b>Estado:</b> RN</p>
-            </article>
-        </main>
-
+        <div class="content-container">
+            <header>
+                <h1>Buscar cep</h1>
+            </header>
+            <main>
+                <form class="row g-3">
+                    <div class="col-auto">
+                        <label for="cep" class="visually-hidden">Digite o CEP...</label>
+                        <input type="text" class="form-control" id="cep" placeholder="Digite o CEP..." maxlength="9"
+                            inputmode="numeric" required />
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3" id="botao-buscar">Buscar</button>
+                    </div>
+                </form>
+                <article class="campo-resultado">
+                    <p><b>Endereço:</b> Avenida Nila Jales</p>
+                    <p><b>Bairro</b> Lagoa Azul</p>
+                    <p><b>Cidade:</b> Natal</p>
+                    <p><b>Estado:</b> RN</p>
+                </article>
+            </main>
+        </div>
         <footer>
             <address id="credits"><em>Coded by <a href="https://github.com/cmoiss/" title="Meu github">cmoiss</a></em>
             </address>

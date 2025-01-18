@@ -6,15 +6,22 @@
 }
 
 .wrapper {
-    background-color: rgb(196, 201, 216);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(196, 201, 216) !important;
+    max-width: 100%;
+    min-height: 100svh;
+}
+
+.content-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 100%;
-    min-height: 100svh;
-    margin: 0 auto;
     padding: 0.625rem 1.25rem;
+    min-height: 500px;
 }
 
 main {
@@ -26,7 +33,7 @@ main {
 h1 {
     font-size: 3.4rem !important;
     font-family: "Roboto Slab", serif;
-    font-weight: 400 !important; 
+    font-weight: 400 !important;
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -47,8 +54,4 @@ h1 {
     padding: 1rem;
     border-radius: 1.2em;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-}
-
-footer {
-    margin-top: 10rem;
 }
